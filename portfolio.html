@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdallah Moataz | Portfolio</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --accent: #38bdf8;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+        }
+        .profile-img {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 10px 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+        header h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            border-bottom: 1px dashed var(--accent);
+            padding-bottom: 2px;
+        }
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+        .summary {
+            max-width: 800px;
+            margin: 25px auto 0 auto;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+        /* Grid Tech Stack */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+        }
+        .skill-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        .skill-card ul {
+            padding-left: 20px;
+            color: var(--text-light);
+        }
+        .skill-card li {
+            margin-bottom: 8px;
+        }
+        /* Project Cards */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 50px 0 30px 0;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+        }
+        .project-img-container {
+            background: #f1f5f9;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .project-img {
+            max-width: 100%;
+            max-height: 380px;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .project-content {
+            padding: 30px;
+        }
+        .project-title {
+            color: var(--secondary);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .tech-badge {
+            background: #eff6ff;
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid #bfdbfe;
+        }
+        .star-section {
+            margin-top: 15px;
+        }
+        .star-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+        .star-desc {
+            color: var(--text-light);
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        /* Timeline Experience */
+        .timeline {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .timeline-item {
+            border-left: 3px solid var(--secondary);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border: 3px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: -11px;
+            top: 5px;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+        .job-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0;
+        }
+        .job-meta {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin: 2px 0 10px 0;
+        }
+        .job-desc {
+            color: var(--text-light);
+        }
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <!-- سيقوم المتصفح بقراءة الصورة الشخصية مباشرة من جهازك أو من الرابط المرفق -->
+        <img src="WhatsApp Image 2026-06-02 at 3.14.42 PM (1).jpeg" alt="Abdallah Moataz" class="profile-img">
+        <h1>Abdallah Elsobky</h1>
+        <h2>Data Engineer</h2>
+        <div class="contact-links">
+            <a href="mailto:abdallahmoataz9@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/abdallah-elsobky" target="_blank">LinkedIn</a>
+            <a href="tel:+201097989642">Phone</a>
+        </div>
+        <p class="summary">
+            Data Professional specializing in Data Engineering, cloud systems infrastructure, and pipeline architecture. Proficient in creating robust automated ETL processes, handling advanced distributed computation models, and modeling optimized enterprise relational warehouses to guide operational success.
+        </p>
+    </header>
+
+    <div class="container">
+
+        <!-- SKILLS SECTION -->
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>☁️ Cloud & Distributed Computing</h3>
+                <ul>
+                    <li>Apache Hadoop & Apache Spark Distributed Engine</li>
+                    <li>Databricks Workspace Automation</li>
+                    <li>Advanced Git Version Control Systems</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>🗄️ Architecture & Pipeline Modeling</h3>
+                <ul>
+                    <li>End-to-End Advanced ETL/ELT Pipeline Design</li>
+                    <li>Star Schema Enterprise Dimensional Modeling</li>
+                    <li>Slowly Changing Dimensions (SCD Type 2) Architecture</li>
+                    <li>Performance Indexing & Database Partitioning</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>📊 Scripting & Business Intelligence</h3>
+                <ul>
+                    <li>Advanced SQL (Complex Query Optimization & Logic)</li>
+                    <li>Python scripting (Pandas, Matplotlib Engineering)</li>
+                    <li>Power BI Data Modeling & Analytical Dashboarding</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <h2 class="section-title">Featured Engineering Projects</h2>
+
+        <!-- Project 1 -->
+        <div class="project-card">
+            <div class="project-img-container">
+                <!-- رسمة الـ Architecture الهندسية للمشروع الأول تظهر هنا تلقائياً -->
+                <img src="WhatsApp Image 2026-06-02 at 2.49.47 PM (1).jpeg" alt="Telecom Warehouse Architecture" class="project-img">
+            </div>
+            <div class="project-content">
+                <span class="tech-badge">SQL Server | Data Modeling | Star Schema | SCD Type 2</span>
+                <h3 class="project-title">Enterprise Telecom Data Architecture: OLTP to Data Warehouse</h3>
+                
+                <div class="star-section">
+                    <div class="star-title">🛑 The Challenge:</div>
+                    <div class="star-desc">High-volume telecom transactional operations databases (OLTP systems keeping records of Calls, SMS, Recharges, and plans) are highly normalized and optimized strictly for short transactional tasks. This baseline setup makes them heavily inefficient and extremely sluggish when executing complex relational queries or populating large-scale historical business intelligence applications.</div>
+                </div>
+                <div class="star-section">
+                    <div class="star-title">🛠️ The Solution Architecture:</div>
+                    <div class="star-desc">Designed a fully functional transactional OLTP database and engineered a robust enterprise ETL workflow to extract operations data into a staging environment for validation and deduping logic. Re-architected and modeled the analytical target using an optimized multi-dimensional Star Schema structure. Implemented Slowly Changing Dimensions (SCD Type 2) tracking algorithms to log dynamic changes in customer details over historical arcs while reinforcing performance metrics through custom storage partitioning.</div>
+                </div>
+                <div class="star-section">
+                    <div class="star-title">📊 Business Value & Insights:</div>
+                    <div class="star-desc">Established a reliable, production-grade target warehouse layout. Formulated complex analytic SQL queries that surface crucial business dimensions including customer churn curves, monthly revenue trends, service plan performance metrics, and top-tier revenue generating accounts.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <div class="project-img-container">
+                <!-- رسمة خط الأنابيب السحابي لـ Informatica تظهر هنا تلقائياً -->
+                <img src="WhatsApp Image 2026-06-02 at 2.49.47 PM.jpeg" alt="Informatica ETL Pipeline Design" class="project-img">
+            </div>
+            <div class="project-content">
+                <span class="tech-badge">Informatica Cloud (IICS) | ETL Design | Data Integration | Data Routing</span>
+                <h3 class="project-title">Multi-Source Cloud Sales Data Integration & Analytics Pipeline</h3>
+                
+                <div class="star-section">
+                    <div class="star-title">🛑 The Challenge:</div>
+                    <div class="star-desc">Retail sales logs were isolated across separate regional transactional clusters (e.g., Cairo and Alexandria). The ingestion layer suffered from deep data format inconsistencies, invalid datatypes, missing attributes, and duplicate records, creating friction that blocked business groups from auditing centralized sales totals.</div>
+                </div>
+                <div class="star-section">
+                    <div class="star-title">🛠️ The Solution Architecture:</div>
+                    <div class="star-desc">Created a resilient, cloud-hosted integration structure leveraging Informatica Cloud (IICS). Merged multi-city transactional streams via Union logic, then embedded stringent Filter and Expression transformation controls to eliminate dirty logs and enforce structural data uniformity. Integrated dynamic Lookup patterns to automate regional tax tier indexing and product dimension matching, grouping total results at the product SKU level through explicit Aggregator layers before deploying a dynamic Router configuration.</div>
+                </div>
+                <div class="star-section">
+                    <div class="star-title">📊 Business Value & Insights:</div>
+                    <div class="star-desc">Delivered an automated cloud engineering pipe that continuously populates production target endpoints with clean, trusted data segments (Best Sellers vs Average Products), eliminating operational delay for downstream strategic business units.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <div class="project-content">
+                <span class="tech-badge">Python | Pandas | SQL | Power BI</span>
+                <h3 class="project-title">120 Years of Olympic Games History – Macro Data Platform</h3>
+                <div class="star-section">
+                    <div class="star-title">🛑 The Challenge:</div>
+                    <div class="star-desc">Historical sports data spanning over a century was highly fragmented, non-standardized, and embedded with heavy structural inconsistencies across different historical eras, halting macroscopic analytics.</div>
+                </div>
+                <div class="star-section">
+                    <div class="star-title">🛠️ The Solution Architecture:</div>
+                    <div class="star-desc">Executed rigorous Exploratory Data Analysis (EDA) pipelines using Python and Pandas to normalize varying attributes and clean data gaps. Authored highly efficient relational SQL queries to query cross-era historical trends, publishing results into an interactive, dynamically filtered Power BI reporting system.</div>
+                </div>
+                <div class="star-section">
+                    <div class="star-title">📊 Business Value & Insights:</div>
+                    <div class="star-desc">Delivered a rich analytic interface revealing hidden historical trends in athlete demographics, localized performance trends, and shifting global medal distribution patterns.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORK EXPERIENCE -->
+        <h2 class="section-title">Professional Experience & Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="job-title">Data Analysis & Engineering Researcher</p>
+                <p class="job-meta">FAMILY BED for Mattresses & Bed Linen | Remote, Egypt (Oct 2025 – Jan 2026)</p>
+                <p class="job-desc">Designed reliable data collection methodologies ensuring data integrity and reliability for corporate tracking databases. Applied statistical models via Python and Excel to interpret data patterns, creating visualizations and charts to present operational findings clearly to stakeholders.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="job-title">Freelance Data Engineering Consultant</p>
+                <p class="job-meta">Small Business Analytics | Remote (Ongoing)</p>
+                <p class="job-desc">Handled end-to-end data processing, cleaning, and structural engineering of large client transactional datasets via Python and Excel. Built unified analytical dashboards and comprehensive reporting structures to evaluate customer retention and sales trends.</p>
+            </div>
+            <div class="timeline-item" style="margin-bottom: 0;">
+                <p class="job-title">Bachelor of Computer Science</p>
+                <p class="job-meta">Menoufia University, Egypt (Oct 2021 – Jun 2025)</p>
+                <p class="job-desc">Focused on algorithmic logic, relational systems, performance tuning, and fundamental computer science frameworks.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Let's Architect Sustainable Data Ecosystems Together</h3>
+        <p>Currently open to enterprise Cloud Data Engineering and Pipeline Automation roles.</p>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 25px;">&copy; 2026 Abdallah Moataz. All Engineering Blueprints Verified.</p>
+    </footer>
+
+</body>
+</html>
